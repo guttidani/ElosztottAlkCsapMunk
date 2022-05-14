@@ -27,14 +27,6 @@ public class Auto implements Serializable{
         this.Szin = "Fehér";
     }
 
-    public void setSzin(String Szin) {
-        this.Szin = Szin;
-    }
-
-    public void setMarka(String Marka) {
-        this.Marka = Marka;
-    }
-    
     public Auto(String Szin) {
         this.Marka = "VW";
         this.Szin = Szin;
@@ -44,5 +36,9 @@ public class Auto implements Serializable{
         this.Marka = Marka;
         this.Szin = Szin;
     }
-    
+
+    @Override
+    public String toString() {
+        return "Autó{" + "Szín=" + Szin + ", Márka=" + Marka + '}';
+    }
 }

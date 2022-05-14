@@ -30,10 +30,6 @@ public class Ember implements Serializable{
         return Keresztnev;
     }
 
-    public void setID(int ID) {
-        this.ID = ID;
-    }
-
     public void setVezeteknev(String Vezeteknev) {
         this.Vezeteknev = Vezeteknev;
     }
@@ -53,11 +49,4 @@ public class Ember implements Serializable{
         this.Vezeteknev = Vezeteknev;
         this.Keresztnev = Keresztnev;
     }
-
-    public Ember(String Vezeteknev, String Keresztnev, boolean isCEO) {
-        this.ID = counter++;
-        this.Vezeteknev = Vezeteknev;
-        this.Keresztnev = Keresztnev;
-    }
-
 }
