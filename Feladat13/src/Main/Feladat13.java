@@ -32,6 +32,7 @@ public class Feladat13 extends Application {
         primaryStage.setScene(mainScene);
         primaryStage.show();
 
+
     }
     public static void main(String args[]){
       launch(args);

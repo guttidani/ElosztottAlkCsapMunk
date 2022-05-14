@@ -4,16 +4,19 @@
  */
 package Modell;
 
+import java.io.Serializable;
 
 /**
  *
  * @author Czuth Dominik
  */
-public class Emberek {
+public class Ember implements Serializable{
+
+    private static int counter;
     private int ID;
     private String Vezeteknev;
     private String Keresztnev;
-    private boolean CEO;
+    
 
     public int getID() {
         return ID;
@@ -27,14 +30,6 @@ public class Emberek {
         return Keresztnev;
     }
 
-    public boolean isCEO() {
-        return CEO;
-    }
-
-    public void setID(int ID) {
-        this.ID = ID;
-    }
-
     public void setVezeteknev(String Vezeteknev) {
         this.Vezeteknev = Vezeteknev;
     }
@@ -43,15 +38,15 @@ public class Emberek {
         this.Keresztnev = Keresztnev;
     }
 
-    public void setCEO(boolean CEO) {
-        this.CEO = CEO;
+    public Ember() {
+        this.ID = counter++;
+        this.Keresztnev = "N/A";
+        this.Vezeteknev = "N/A";
     }
 
-    
-
-    public Emberek() {
-      
-        
+    public Ember(String Vezeteknev, String Keresztnev) {
+        this.ID = counter++;
+        this.Vezeteknev = Vezeteknev;
+        this.Keresztnev = Keresztnev;
     }
-    
 }

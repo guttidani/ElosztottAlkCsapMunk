@@ -4,11 +4,13 @@
  */
 package Modell;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Dani
  */
-public class Auto {
+public class Auto implements Serializable{
     private String Szin;
     private String Marka;
 
@@ -24,5 +26,19 @@ public class Auto {
         this.Marka = "VW";
         this.Szin = "Fehér";
     }
+
+    public Auto(String Szin) {
+        this.Marka = "VW";
+        this.Szin = Szin;
+    }
     
+    public Auto(String Szin, String Marka) {
+        this.Marka = Marka;
+        this.Szin = Szin;
+    }
+
+    @Override
+    public String toString() {
+        return "Autó{" + "Szín=" + Szin + ", Márka=" + Marka + '}';
+    }
 }
