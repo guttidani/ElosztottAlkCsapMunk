@@ -4,11 +4,13 @@
  */
 package Modell;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Dani
  */
-public class Auto {
+public class Auto implements Serializable{
     private String Szin;
     private String Marka;
 

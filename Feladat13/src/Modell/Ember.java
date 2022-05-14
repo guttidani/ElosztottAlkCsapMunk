@@ -14,7 +14,7 @@ public class Ember {
     private int ID;
     private String Vezeteknev;
     private String Keresztnev;
-    private boolean CEO;
+    
 
     public int getID() {
         return ID;
@@ -26,10 +26,6 @@ public class Ember {
 
     public String getKeresztnev() {
         return Keresztnev;
-    }
-
-    public boolean isCEO() {
-        return CEO;
     }
 
     public void setID(int ID) {
@@ -44,30 +40,22 @@ public class Ember {
         this.Keresztnev = Keresztnev;
     }
 
-    public void setCEO(boolean CEO) {
-        this.CEO = CEO;
-    }
-
     public Ember() {
         this.ID = counter++;
         this.Keresztnev = "N/A";
         this.Vezeteknev = "N/A";
-        this.CEO = false;
-
     }
 
     public Ember(String Vezeteknev, String Keresztnev) {
         this.ID = counter++;
         this.Vezeteknev = Vezeteknev;
         this.Keresztnev = Keresztnev;
-        this.CEO = false;
     }
 
     public Ember(String Vezeteknev, String Keresztnev, boolean isCEO) {
         this.ID = counter++;
         this.Vezeteknev = Vezeteknev;
         this.Keresztnev = Keresztnev;
-        this.CEO = isCEO;
     }
 
 }
