@@ -9,10 +9,12 @@ import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
 
 /**
+
  *
  * @author Dani
  */
 public class Feladat13 extends Application{
+    @Override
     public void start (Stage primaryStage){
          primaryStage.setTitle("Beadandó");
          VBox gridBox = new VBox();

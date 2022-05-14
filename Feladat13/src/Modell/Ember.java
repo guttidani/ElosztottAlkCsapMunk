@@ -4,12 +4,13 @@
  */
 package Modell;
 
-
 /**
  *
  * @author Czuth Dominik
  */
-public class Emberek {
+public class Ember {
+
+    private static int counter;
     private int ID;
     private String Vezeteknev;
     private String Keresztnev;
@@ -47,11 +48,26 @@ public class Emberek {
         this.CEO = CEO;
     }
 
-    
+    public Ember() {
+        this.ID = counter++;
+        this.Keresztnev = "N/A";
+        this.Vezeteknev = "N/A";
+        this.CEO = false;
 
-    public Emberek() {
-      
-        
     }
-    
+
+    public Ember(String Vezeteknev, String Keresztnev) {
+        this.ID = counter++;
+        this.Vezeteknev = Vezeteknev;
+        this.Keresztnev = Keresztnev;
+        this.CEO = false;
+    }
+
+    public Ember(String Vezeteknev, String Keresztnev, boolean isCEO) {
+        this.ID = counter++;
+        this.Vezeteknev = Vezeteknev;
+        this.Keresztnev = Keresztnev;
+        this.CEO = isCEO;
+    }
+
 }
