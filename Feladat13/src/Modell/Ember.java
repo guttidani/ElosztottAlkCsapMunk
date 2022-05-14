@@ -4,11 +4,13 @@
  */
 package Modell;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Czuth Dominik
  */
-public class Ember {
+public class Ember implements Serializable{
 
     private static int counter;
     private int ID;
