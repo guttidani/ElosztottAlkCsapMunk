@@ -22,7 +22,7 @@ public class Auto {
 
     public Auto() {
         this.Marka = "VW";
-        this.Szin = "fehér";
+        this.Szin = "Fehér";
     }
     
 }

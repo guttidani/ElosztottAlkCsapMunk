@@ -3,18 +3,22 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
 package Main;
+import javafx.stage.Stage;
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.layout.VBox;
 
 /**
  *
  * @author Dani
  */
-public class Feladat13 {
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
+public class Feladat13 extends Application{
+    public void start (Stage primaryStage){
+         primaryStage.setTitle("Beadandó");
+         VBox gridBox = new VBox();
+         Scene mainScene = new Scene(gridBox,900,600);
+         primaryStage.setScene(mainScene);
+         primaryStage.show();
+            
     }
-    
 }
