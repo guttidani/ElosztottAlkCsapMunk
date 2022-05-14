@@ -27,8 +27,4 @@ public class Autotulajdonos extends Ember{
     public String toString() {
         return "Név: " + this.getVezeteknev() + " " + this.getKeresztnev() + "Autok =" + auto + '}';
     }
-    
-    
-    
-    
 }
