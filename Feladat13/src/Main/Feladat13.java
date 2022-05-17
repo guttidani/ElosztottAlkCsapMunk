@@ -7,11 +7,15 @@ package Main;
 import javafx.geometry.Insets;
 import javafx.stage.Stage;
 import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
+import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -20,14 +24,16 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontPosture;
+import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
-
 
 public class Feladat13 extends Application {
 
     public void start(Stage primaryStage) {
         primaryStage.setTitle("Beadandó");
-        //Gombok + Mezők       
+        //Gombok + Mezők Létrehozása      
         Text Veznev = new Text("Vezetéknév");
         Text Kernev = new Text("Keresztnév");
         TextField Vezfield = new TextField();
@@ -35,23 +41,49 @@ public class Feladat13 extends Application {
         //Gombok
         Button OKgomb = new Button("OK");
         Button Megsegomb = new Button("Mégse");
-        //Creating a Grid Pane
+        //Grid Pane Létrehozása
         GridPane gridPane = new GridPane();
-        //Setting size for the pane
         //gridPane.setMinSize(400, 200);
         gridPane.setPadding(new Insets(10, 10, 10, 10));
         gridPane.setVgap(5);
         gridPane.setHgap(5);
-        //GRID helyzete
+        //GRID Helyzete
         gridPane.setAlignment(Pos.TOP_LEFT);
-        //Gombok + Mezők helyezése
+        //Gombok + Mezők Helyezése
         gridPane.add(Veznev, 1, 2);
         gridPane.add(Vezfield, 2, 2);
         gridPane.add(Kernev, 1, 3);
         gridPane.add(Kerfield, 2, 3);
         gridPane.add(OKgomb, 2, 4);
         gridPane.add(Megsegomb, 2, 5);
-        Scene scene = new Scene(gridPane, 900, 200);
+        //Gombok + Mezők Vége
+        //Tábla Kezdete
+
+        Label tablaNev = new Label("File Data:");
+        Font font = Font.font("verdana", FontWeight.BOLD, FontPosture.REGULAR, 12);
+        tablaNev.setFont(font);
+        TableView<Data> table = new TableView<Data>();
+        //Creating columns
+        TableColumn Nev = new TableColumn("Név");
+        Nev.setCellValueFactory(new PropertyValueFactory<>("név"));
+        TableColumn Marka = new TableColumn("Márka");
+        Marka.setCellValueFactory(new PropertyValueFactory("márka"));
+        TableColumn Szin = new TableColumn("Szín");
+        Szin.setCellValueFactory(new PropertyValueFactory("szín"));
+        TableColumn Vagyon = new TableColumn("Vagyon");
+        Vagyon.setCellValueFactory(new PropertyValueFactory("vagyon"));
+        Vagyon.setPrefWidth(100);
+        //Adding data to the table
+        table.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+        table.getColumns().addAll(Nev, Marka, Szin, Vagyon);
+        //Setting the size of the table
+        table.setMaxSize(350, 200);
+        VBox vbox = new VBox();
+        vbox.setSpacing(5);
+        vbox.setPadding(new Insets(10, 50, 50, 60));
+        vbox.getChildren().addAll(tablaNev, table);
+        //Tábla Vége
+        Scene scene = new Scene(gridPane, 1000, 500);
         primaryStage.setScene(scene);
         primaryStage.show();
 
