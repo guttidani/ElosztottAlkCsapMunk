@@ -4,50 +4,55 @@
  */
 package Main;
 
+import javafx.geometry.Insets;
 import javafx.stage.Stage;
 import javafx.application.Application;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
+
 
 public class Feladat13 extends Application {
 
     public void start(Stage primaryStage) {
         primaryStage.setTitle("Beadandó");
-        //Input mező
-        primaryStage.setTitle("Név");
-        TextField input = new TextField();
-        StackPane s = new StackPane();
-        s.getChildren().add(input);
-        //Gomb
-        Button OKbutton = new Button();
-        OKbutton.setText("OK");
-        /*TableView tableView = new TableView();   //Tábla
-        TableColumn<Person, String> column1 
-                = new TableColumn<>("Vezetéknév");
-
-        column1.setCellValueFactory(
-                new PropertyValueFactory<>("Vezetéknév"));
-
-        TableColumn<Person, String> column2
-                = new TableColumn<>("Keresztnév");
-
-        column2.setCellValueFactory(
-                new PropertyValueFactory<>("Keresztnév"));
-         */
-        HBox horiBox = new HBox(OKbutton);
-        VBox gridBox = new VBox(horiBox, input);
-        OKbutton.setTranslateX(300);  
-        OKbutton.setTranslateY(200);
-        Scene mainScene = new Scene(gridBox, 900, 600);
-        primaryStage.setScene(mainScene);
-
+        //Gombok + Mezők       
+        Text Veznev = new Text("Vezetéknév");
+        Text Kernev = new Text("Keresztnév");
+        TextField Vezfield = new TextField();
+        TextField Kerfield = new TextField();
+        //Gombok
+        Button OKgomb = new Button("OK");
+        Button Megsegomb = new Button("Mégse");
+        //Creating a Grid Pane
+        GridPane gridPane = new GridPane();
+        //Setting size for the pane
+        //gridPane.setMinSize(400, 200);
+        gridPane.setPadding(new Insets(10, 10, 10, 10));
+        gridPane.setVgap(5);
+        gridPane.setHgap(5);
+        //GRID helyzete
+        gridPane.setAlignment(Pos.TOP_LEFT);
+        //Gombok + Mezők helyezése
+        gridPane.add(Veznev, 1, 2);
+        gridPane.add(Vezfield, 2, 2);
+        gridPane.add(Kernev, 1, 3);
+        gridPane.add(Kerfield, 2, 3);
+        gridPane.add(OKgomb, 2, 4);
+        gridPane.add(Megsegomb, 2, 5);
+        Scene scene = new Scene(gridPane, 900, 200);
+        primaryStage.setScene(scene);
         primaryStage.show();
 
     }
