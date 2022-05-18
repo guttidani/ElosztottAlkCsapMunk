@@ -22,6 +22,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontPosture;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
+import javafx.scene.layout.HBox;
 
 public class Feladat13 extends Application {
 
@@ -53,8 +54,8 @@ public class Feladat13 extends Application {
         //Gombok + Mezők Vége
         //Tábla Kezdete
 
-        Label tablaNev = new Label("File Data:");
-        Font font = Font.font("verdana", FontWeight.BOLD, FontPosture.REGULAR, 12);
+        Label tablaNev = new Label("Adatok:");
+        Font font = Font.font("Times New Roman", FontWeight.BOLD, FontPosture.REGULAR, 12);
         tablaNev.setFont(font);
         TableView<Data> table = new TableView<Data>();
         //Creating columns
@@ -71,13 +72,14 @@ public class Feladat13 extends Application {
         table.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         table.getColumns().addAll(Nev, Marka, Szin, Vagyon);
         //Setting the size of the table
-        table.setMaxSize(300, 200);
+        table.setMaxSize(400, 200);
         VBox vbox = new VBox();
+        HBox hbox = new HBox(gridPane,vbox);
         vbox.setSpacing(5);
         vbox.setPadding(new Insets(10, 50, 50, 60));
         vbox.getChildren().addAll(tablaNev, table);
         //Tábla Vége
-        Scene scene = new Scene(gridPane, 1000, 500);
+        Scene scene = new Scene(hbox, 1000, 500);
         primaryStage.setScene(scene);
         primaryStage.show();
 
