@@ -61,25 +61,27 @@ public class Feladat13 extends Application {
         //Creating columns
         TableColumn Nev = new TableColumn("Név");
         Nev.setCellValueFactory(new PropertyValueFactory<>("név"));
+        Nev.setPrefWidth(200);
         TableColumn Marka = new TableColumn("Márka");
         Marka.setCellValueFactory(new PropertyValueFactory("márka"));
         TableColumn Szin = new TableColumn("Szín");
         Szin.setCellValueFactory(new PropertyValueFactory("szín"));
+        Szin.setPrefWidth(90);
         TableColumn Vagyon = new TableColumn("Vagyon");
         Vagyon.setCellValueFactory(new PropertyValueFactory("vagyon"));
-        Vagyon.setPrefWidth(100);
+        Vagyon.setPrefWidth(150);
         //Adding data to the table
         table.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         table.getColumns().addAll(Nev, Marka, Szin, Vagyon);
         //Setting the size of the table
-        table.setMaxSize(400, 200);
+        table.setMaxSize(700, 200);
         VBox vbox = new VBox();
         HBox hbox = new HBox(gridPane,vbox);
         vbox.setSpacing(5);
         vbox.setPadding(new Insets(10, 50, 50, 60));
         vbox.getChildren().addAll(tablaNev, table);
         //Tábla Vége
-        Scene scene = new Scene(hbox, 1000, 500);
+        Scene scene = new Scene(hbox, 1000, 300);
         primaryStage.setScene(scene);
         primaryStage.show();
 
