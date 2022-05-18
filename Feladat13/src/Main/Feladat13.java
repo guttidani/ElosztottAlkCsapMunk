@@ -53,27 +53,28 @@ public class Feladat13 extends Application {
         gridPane.add(Megsegomb, 2, 5);
         //Gombok + Mezők Vége
         //Tábla Kezdete
-
         Label tablaNev = new Label("Adatok:");
-        Font font = Font.font("Times New Roman", FontWeight.BOLD, FontPosture.REGULAR, 12);
+        Font font = Font.font("Times New Roman", FontWeight.BOLD, FontPosture.REGULAR, 17);
         tablaNev.setFont(font);
         TableView<Data> table = new TableView<Data>();
-        //Creating columns
+        //Oszlopok létrehozása
         TableColumn Nev = new TableColumn("Név");
         Nev.setCellValueFactory(new PropertyValueFactory<>("név"));
         Nev.setPrefWidth(200);
         TableColumn Marka = new TableColumn("Márka");
         Marka.setCellValueFactory(new PropertyValueFactory("márka"));
+        Marka.setPrefWidth(100);
         TableColumn Szin = new TableColumn("Szín");
         Szin.setCellValueFactory(new PropertyValueFactory("szín"));
-        Szin.setPrefWidth(90);
+        Szin.setPrefWidth(100);
         TableColumn Vagyon = new TableColumn("Vagyon");
         Vagyon.setCellValueFactory(new PropertyValueFactory("vagyon"));
-        Vagyon.setPrefWidth(150);
-        //Adding data to the table
+        Vagyon.setPrefWidth(200);
+        
+        //Oszlopok megjelenítése
         table.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         table.getColumns().addAll(Nev, Marka, Szin, Vagyon);
-        //Setting the size of the table
+        //Tábla méretezése
         table.setMaxSize(700, 200);
         VBox vbox = new VBox();
         HBox hbox = new HBox(gridPane,vbox);
