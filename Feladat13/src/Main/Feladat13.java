@@ -7,15 +7,19 @@ package Main;
 import javafx.geometry.Insets;
 import javafx.stage.Stage;
 import javafx.application.Application;
+import javafx.collections.FXCollections;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Tooltip;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
@@ -27,8 +31,8 @@ import javafx.scene.layout.HBox;
 public class Feladat13 extends Application {
 
     public void start(Stage primaryStage) {
-        primaryStage.setTitle("Beadandó");
-        //Gombok + Mezők Létrehozása      
+        primaryStage.setTitle("Emberek Felvétele");
+        //Gombok + Mezők Létrehozása  
         Text Veznev = new Text("Vezetéknév");
         Text Kernev = new Text("Keresztnév");
         TextField Vezfield = new TextField();
@@ -49,9 +53,27 @@ public class Feladat13 extends Application {
         gridPane.add(Vezfield, 2, 2);
         gridPane.add(Kernev, 1, 3);
         gridPane.add(Kerfield, 2, 3);
-        gridPane.add(OKgomb, 2, 4);
-        gridPane.add(Megsegomb, 2, 5);
-        //Gombok + Mezők Vége
+        gridPane.add(OKgomb, 2, 9);
+        gridPane.add(Megsegomb, 2, 10);
+        //Checkbox
+        CheckBox cb = new CheckBox();
+        cb.setText("Cégtulajdonos");
+        cb.setSelected(false);
+        gridPane.add(cb, 2, 4);
+        //Gombok + Mezők + checkbox Vége
+        //ChoiceBox kezdete
+        Text t = new Text();
+        t.setText("Márka");
+        Text t2 = new Text();
+        t2.setText("Szín");
+        ChoiceBox chb = new ChoiceBox(FXCollections.observableArrayList("VolksWagen", "Peugeot", "Ford", "Audi", "Porche"));
+        ChoiceBox chb2 = new ChoiceBox(FXCollections.observableArrayList("Fehér", "Fekete", "Piros", "Kék", "Sárga"));
+        chb.setTooltip(new Tooltip("Válassza ki a márkát!"));
+        chb2.setTooltip(new Tooltip("Válassza ki a színt!"));
+        gridPane.add(chb, 2, 6);
+        gridPane.add(chb2, 2, 7);
+        gridPane.add(t, 1, 6);
+        gridPane.add(t2, 1, 7);
         //Tábla Kezdete
         Label tablaNev = new Label("Adatok:");
         Font font = Font.font("Times New Roman", FontWeight.BOLD, FontPosture.REGULAR, 17);
@@ -70,14 +92,13 @@ public class Feladat13 extends Application {
         TableColumn Vagyon = new TableColumn("Vagyon");
         Vagyon.setCellValueFactory(new PropertyValueFactory("vagyon"));
         Vagyon.setPrefWidth(200);
-        
         //Oszlopok megjelenítése
         table.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         table.getColumns().addAll(Nev, Marka, Szin, Vagyon);
         //Tábla méretezése
         table.setMaxSize(700, 200);
         VBox vbox = new VBox();
-        HBox hbox = new HBox(gridPane,vbox);
+        HBox hbox = new HBox(gridPane, vbox);
         vbox.setSpacing(5);
         vbox.setPadding(new Insets(10, 50, 50, 60));
         vbox.getChildren().addAll(tablaNev, table);
