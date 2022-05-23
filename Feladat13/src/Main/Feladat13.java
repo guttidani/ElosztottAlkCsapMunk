@@ -75,7 +75,7 @@ public class Feladat13 extends Application {
         gridPane.add(t, 1, 6);
         gridPane.add(t2, 1, 7);
         //Tábla Kezdete
-        Label tablaNev = new Label("Adatok:");
+        Label tablaNev = new Label("Emberek Adatai:");
         Font font = Font.font("Times New Roman", FontWeight.BOLD, FontPosture.REGULAR, 17);
         tablaNev.setFont(font);
         TableView<Data> table = new TableView<Data>();
@@ -89,14 +89,17 @@ public class Feladat13 extends Application {
         TableColumn Szin = new TableColumn("Szín");
         Szin.setCellValueFactory(new PropertyValueFactory("szín"));
         Szin.setPrefWidth(100);
+        TableColumn Cegtul = new TableColumn("CEO");
+        Cegtul.setCellValueFactory(new PropertyValueFactory("ceo"));
+        Cegtul.setPrefWidth(50);
         TableColumn Vagyon = new TableColumn("Vagyon");
         Vagyon.setCellValueFactory(new PropertyValueFactory("vagyon"));
-        Vagyon.setPrefWidth(200);
+        Vagyon.setPrefWidth(100);
         //Oszlopok megjelenítése
         table.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-        table.getColumns().addAll(Nev, Marka, Szin, Vagyon);
+        table.getColumns().addAll(Nev, Marka, Szin, Vagyon, Cegtul);
         //Tábla méretezése
-        table.setMaxSize(700, 200);
+        table.setMaxSize(900, 200);
         VBox vbox = new VBox();
         HBox hbox = new HBox(gridPane, vbox);
         vbox.setSpacing(5);
