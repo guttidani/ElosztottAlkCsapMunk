@@ -38,8 +38,8 @@ public class Feladat13 extends Application {
         TextField Vezfield = new TextField();
         TextField Kerfield = new TextField();
         //Gombok
-        Button OKgomb = new Button("OK");
-        Button Megsegomb = new Button("Mégse");
+        Button OKgomb = new Button("OK"); //Bejegyzi a beírt inputot
+        Button Megsegomb = new Button("Mégse"); //Kitörli az összes eddigi beirt inputot
         //Grid Pane Létrehozása
         GridPane gridPane = new GridPane();
         //gridPane.setMinSize(400, 200);
@@ -60,7 +60,7 @@ public class Feladat13 extends Application {
         cb.setText("Cégtulajdonos");
         cb.setSelected(false);
         gridPane.add(cb, 2, 4);
-        //Gombok + Mezők + checkbox Vége
+        //Gombok + Text Mezők + Checkbox Vége
         //ChoiceBox kezdete
         Text t = new Text();
         t.setText("Márka");
@@ -74,6 +74,7 @@ public class Feladat13 extends Application {
         gridPane.add(chb2, 2, 7);
         gridPane.add(t, 1, 6);
         gridPane.add(t2, 1, 7);
+        //Choicebox vége
         //Tábla Kezdete
         Label tablaNev = new Label("Emberek Adatai:");
         Font font = Font.font("Times New Roman", FontWeight.BOLD, FontPosture.REGULAR, 17);
